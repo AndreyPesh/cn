@@ -9,6 +9,7 @@ type ProvidersType = Awaited<ReturnType<typeof getProviders>>;
 const Nav = () => {
   const isUserLoggedIn = true;
   const [providers, setProviders] = useState<ProvidersType>(null);
+  const [toggleDropDown, setToggleDropDown] = useState(false);
 
   useEffect(() => {
     const setProvidersToState = async () => {
@@ -78,8 +79,36 @@ const Nav = () => {
               width={37}
               height={37}
               className="rounded-full"
-              onClick={() => ({})}
+              onClick={() => setToggleDropDown((prev) => !prev)}
             />
+            {toggleDropDown && (
+              <div className="dropdown">
+                <Link
+                  href={'/profile'}
+                  className="dropdown_link"
+                  onClick={() => setToggleDropDown(false)}
+                >
+                  Profile
+                </Link>
+                <Link
+                  href={'/create-prompt'}
+                  className="dropdown_link"
+                  onClick={() => setToggleDropDown(false)}
+                >
+                  Create prompt
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setToggleDropDown(false);
+                    signOut();
+                  }}
+                  className='mt-5 w-full black_btn'
+                >
+                  Sign out
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <>
