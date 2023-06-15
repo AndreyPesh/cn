@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { error } from 'console';
 
 import { errorCatch, getContentType } from './api.helper';
 import { getAccessToken } from '@/services/auth/auth.helper';
