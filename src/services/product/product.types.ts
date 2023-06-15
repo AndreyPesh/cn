@@ -1,6 +1,6 @@
 export const PRODUCTS = 'products';
 
-export type TypeData = {
+export type TypeProductData = {
 	name: string;
 	price: number;
 	description?: string;
