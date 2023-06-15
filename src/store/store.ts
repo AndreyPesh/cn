@@ -11,6 +11,8 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import { userSlice } from './user/user.slice';
+
 const persistConfig = {
 	key: 'amazon',
 	storage,
@@ -20,6 +22,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
 	// cart: cartSlice.reducer,
 	// carousel: carouselSlice.reducer,
+	user: userSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
