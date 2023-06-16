@@ -12,10 +12,10 @@ import { getAccessToken } from '@/services/auth/auth.helper';
 
 const DynamicCheckRole = dynamic(() => import('./CheckRole'), { ssr: false });
 
-const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = (
-	{ Component: { isOnlyUser } },
+const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
+	Component: { isOnlyUser },
 	children,
-) => {
+}) => {
 	const { user } = useAuth();
 	const { checkAuth, logout } = useActions();
 	const { pathname } = useRouter();
