@@ -4,11 +4,13 @@ const twColors = require('tailwindcss/colors')
 const colors = {
   transparent: twColors.transparent,
   black: '#2E3239',
+  gray: '#CDCDCD',
   white: twColors.white,
   primary: '#FF9902',
   secondary: '#161D25',
   'bg-color': '#F2F2F5',
-  aqua: '#268697'
+  aqua: '#268697',
+  red: twColors.red[400]
 }
 
 module.exports = {
@@ -46,7 +48,7 @@ module.exports = {
             opacity: 0,
             transform: 'scale(0.9)'
           },
-          '50%' : {
+          '50%': {
             opacity: 0.3
           },
           '100%': {

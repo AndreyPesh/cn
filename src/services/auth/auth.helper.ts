@@ -21,6 +21,6 @@ export const removeFromStorage = () => {
 };
 
 export const saveToStorage = (data: IAuthResponse) => {
-	saveToStorage(data);
+	saveTokensStorage(data);
 	localStorage.setItem('user', JSON.stringify(data));
 };
