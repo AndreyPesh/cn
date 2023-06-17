@@ -10,8 +10,6 @@ import UserService from '@/services/user.service';
 const FavoriteButton: FC<{ productId: number }> = ({ productId }) => {
 	const { user } = useAuth();
 
-	if (!user) return null;
-
 	const { profile } = useProfile();
 
 	const { invalidateQueries } = useQueryClient();
@@ -25,6 +23,8 @@ const FavoriteButton: FC<{ productId: number }> = ({ productId }) => {
 			},
 		},
 	);
+
+	if (!user) return null;
 
 	const isExists = profile.favorites.some(
 		favorite => favorite.id === productId,
