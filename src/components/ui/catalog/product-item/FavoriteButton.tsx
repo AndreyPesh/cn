@@ -12,14 +12,14 @@ const FavoriteButton: FC<{ productId: number }> = ({ productId }) => {
 
 	const { profile } = useProfile();
 
-	const { invalidateQueries } = useQueryClient();
+	const clientQuery = useQueryClient();
 
 	const { mutate } = useMutation(
 		['toggle favorite'],
 		() => UserService.toggleFavorite(productId),
 		{
 			onSuccess() {
-				invalidateQueries(['get profile']);
+				clientQuery.invalidateQueries(['get profile']);
 			},
 		},
 	);

@@ -33,7 +33,7 @@ const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
 				</Link>
 			</div>
 			<Link href={`/product/${product.slug}`}>
-				<h3 className='mb-1'>{product.name}</h3>
+				<h3 className='mb-1 mt-2 font-semibold'>{product.name}</h3>
 			</Link>
 			<Link
 				href={`/category/${product.category.slug}`}
@@ -42,9 +42,7 @@ const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
 				{product.category.name}
 			</Link>
 			<ProductRating product={product} />
-			<div className='text-xl font-semibold'>
-				{convertPrice(product.price)}
-			</div>
+			<div className='text-xl font-semibold'>{convertPrice(product.price)}</div>
 		</div>
 	);
 };
