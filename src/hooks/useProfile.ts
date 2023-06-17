@@ -17,5 +17,5 @@ export const useProfile = () => {
 		enabled: !!user,
 	});
 
-	return { profile: data || ({} as IFullUser) };
+	return { profile: data };
 };

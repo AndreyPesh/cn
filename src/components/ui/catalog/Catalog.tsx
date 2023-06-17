@@ -17,11 +17,15 @@ const Catalog: FC<ICatalog> = ({ products, isLoading, title }) => {
 	return (
 		<section>
 			{title && <Heading>{title}</Heading>}
-			{products.length
-				? products.map(product => (
+			{products.length ? (
+				<div className='grid grid-cols-4 gap-10'>
+					{products.map(product => (
 						<ProductItem key={product.id} product={product} />
-				  ))
-				: 'No products'}
+					))}
+				</div>
+			) : (
+				'No products'
+			)}
 		</section>
 	);
 };

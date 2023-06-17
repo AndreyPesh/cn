@@ -4,7 +4,6 @@ import { Rating } from 'react-simple-star-rating';
 import { IProduct } from '@/types/product.interface';
 
 const ProductRating: FC<{ product: IProduct }> = ({ product }) => {
-
 	const [rating] = useState<number>(
 		Math.round(
 			product.reviews.reduce((acc, review) => acc + review.rating, 0) /
@@ -13,13 +12,13 @@ const ProductRating: FC<{ product: IProduct }> = ({ product }) => {
 	);
 
 	return (
-		<div>
-			<span>
+		<div className='mb-2'>
+			<span className='mr-1'>
 				<Rating
 					readonly
 					initialValue={rating}
 					SVGstyle={{ display: 'inline-block' }}
-					size={34}
+					size={20}
 					allowFraction
 					transition
 				/>
