@@ -1,4 +1,4 @@
-import { IUser } from '@/types/user.interface';
+import { IFullUser, IUser } from '@/types/user.interface';
 
 import { instance } from '@/api/api.interceptor';
 
@@ -12,7 +12,7 @@ type TypeData = {
 
 export const UserService = {
 	async getProfile() {
-		return await instance<IUser[]>({
+		return await instance<IFullUser>({
 			url: `/user/profile`,
 			method: 'GET',
 		});
@@ -26,7 +26,7 @@ export const UserService = {
 		});
 	},
 
-	async toggleFavorite(productId: string) {
+	async toggleFavorite(productId: number) {
 		return await instance<IUser>({
 			url: `/user/profile/favorites/${productId}`,
 			method: 'PATCH',

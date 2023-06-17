@@ -1,4 +1,4 @@
-import { IProduct } from '@/types/product.interface';
+import { IProduct, TypePaginationProducts } from '@/types/product.interface';
 
 import { instance } from '@/api/api.interceptor';
 
@@ -6,11 +6,12 @@ import { PRODUCTS, TypeDataFilters, TypeProductData } from './product.types';
 
 export const ProductService = {
 	async getAll(queryData = {} as TypeDataFilters) {
-		return await instance<IProduct[]>({
+		const { data } = await instance<TypePaginationProducts>({
 			url: `/${PRODUCTS}`,
 			method: 'GET',
 			params: queryData,
 		});
+		return data;
 	},
 
 	async getBySlug(slug: string) {
@@ -27,9 +28,9 @@ export const ProductService = {
 		});
 	},
 
-	async getByProduct(productSlug: string) {
+	async getByCategory(categorySlug: string) {
 		return await instance<IProduct[]>({
-			url: `/${PRODUCTS}/by-product/${productSlug}`,
+			url: `/${PRODUCTS}/by-category/${categorySlug}`,
 			method: 'GET',
 		});
 	},
@@ -62,7 +63,6 @@ export const ProductService = {
 			method: 'DELETE',
 		});
 	},
-
 };
 
 export default ProductService;
