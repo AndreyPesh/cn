@@ -6,11 +6,12 @@ import { PRODUCTS, TypeDataFilters, TypeProductData } from './product.types';
 
 export const ProductService = {
 	async getAll(queryData = {} as TypeDataFilters) {
-		return await instance<TypePaginationProducts>({
+		const { data } = await instance<TypePaginationProducts>({
 			url: `/${PRODUCTS}`,
 			method: 'GET',
 			params: queryData,
 		});
+		return data;
 	},
 
 	async getBySlug(slug: string) {
@@ -62,7 +63,6 @@ export const ProductService = {
 			method: 'DELETE',
 		});
 	},
-
 };
 
 export default ProductService;
