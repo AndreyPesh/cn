@@ -19,6 +19,13 @@ export const ReviewService = {
 			data,
 		});
 	},
+
+	async getAverageByProduct(productId: string | number) {
+		return await instance<number>({
+			url: `/review/average-by-product/${productId}`,
+			method: 'GET',
+		});
+	},
 };
 
 export default ReviewService;

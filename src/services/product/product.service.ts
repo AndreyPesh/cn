@@ -27,9 +27,9 @@ export const ProductService = {
 		});
 	},
 
-	async getByProduct(productSlug: string) {
+	async getByCategory(categorySlug: string) {
 		return await instance<IProduct[]>({
-			url: `/${PRODUCTS}/by-product/${productSlug}`,
+			url: `/${PRODUCTS}/by-category/${categorySlug}`,
 			method: 'GET',
 		});
 	},
