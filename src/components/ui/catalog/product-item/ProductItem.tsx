@@ -14,6 +14,7 @@ const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
 				<FavoriteButton productId={product.id} />
 				<AddToCartButton product={product} />
 				<Image
+					priority
 					width={300}
 					height={300}
 					alt={product.name}

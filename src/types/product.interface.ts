@@ -16,3 +16,6 @@ export interface IProduct {
 export interface IProductDetails {
 	product: IProduct;
 }
+
+export type TypeProducts = { products: IProduct[] };
+export type TypePaginationProducts = { length: number; products: IProduct[] };
