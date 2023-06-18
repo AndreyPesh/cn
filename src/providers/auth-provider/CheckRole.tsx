@@ -5,10 +5,10 @@ import { useAuth } from '@/hooks/useAuth';
 
 import { TypeComponentAuthFields } from './auth-page.type';
 
-const CheckRole: FC<PropsWithChildren<TypeComponentAuthFields>> = (
-	{ Component: { isOnlyUser } },
+const CheckRole: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
+	Component: { isOnlyUser },
 	children,
-) => {
+}) => {
 	const { user } = useAuth();
 	const router = useRouter();
 
